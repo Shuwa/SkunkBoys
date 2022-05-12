@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: 1
   DisplayName: Test Item 2
   Description: tsss
-  Icon: {fileID: 21300000, guid: b523df5621b5d9743b2ba49e01570b6f, type: 3}
+  Icon: {fileID: 0}
   MaxStackSize: 2

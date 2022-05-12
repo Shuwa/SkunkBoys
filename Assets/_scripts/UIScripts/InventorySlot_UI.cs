@@ -61,7 +61,7 @@ public class InventorySlot_UI : MonoBehaviour
 
     public void UpdateUISlot()
     {
-        if (assignedInventorySlot != null) UpdateUISlot(AssignedInventorySlot);
+        if (assignedInventorySlot != null) UpdateUISlot(assignedInventorySlot);
     }
 
     public void OnUISlotClick()
