@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     public GameObject playerPrefab;
-    PlayerController playerController;
+    public PlayerController playerController;
 
     private void Awake()
     {
