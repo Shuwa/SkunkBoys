@@ -269,13 +269,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8989718575249988082}
-  - component: {fileID: -7280599963875787609}
   - component: {fileID: 8989718575249988077}
   - component: {fileID: 8989718575249988076}
   - component: {fileID: 8989718575249988080}
   - component: {fileID: 8989718575249988079}
   - component: {fileID: 8989718575249988083}
   - component: {fileID: 641266226156773992}
+  - component: {fileID: 8945626974130036810}
   m_Layer: 0
   m_Name: Player_Red
   m_TagString: Player
@@ -299,21 +299,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-7280599963875787609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8989718575249988073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47a3f9b81692600449e6c1b76da72e71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventorySize: 3
-  inventorySystem:
-    inventorySlots: []
 --- !u!33 &8989718575249988077
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -381,7 +366,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!65 &8989718575249988079
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -428,3 +413,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   InteractionPointRadius: 1
+--- !u!114 &8945626974130036810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8989718575249988073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 360624dcb1d619c4db48a38ed014501a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventorySize: 0
+  primaryInventorySystem:
+    inventorySlots: []
+  secondaryInventorySize: 20
+  secondaryInventorySystem:
+    inventorySlots: []

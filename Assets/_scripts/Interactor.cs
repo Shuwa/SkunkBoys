@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -23,7 +21,7 @@ public class Interactor : MonoBehaviour
 
                 if (interactable != null) StartInteraction(interactable);
             }
-                
+
         }
     }
 

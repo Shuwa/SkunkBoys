@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 
 public class GameManager : MonoBehaviour                  ////  Controller/Keyboard Manager 
-                                                                       // PlugNPlay LOGIC SpielerListe
+                                                          // PlugNPlay LOGIC SpielerListe
 {
     public GameObject[] spawnPoints;
     public List<PlayerInput> playerList = new List<PlayerInput>();
@@ -30,15 +30,15 @@ public class GameManager : MonoBehaviour                  ////  Controller/Keybo
 
         spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
 
-        joinAction.Enable();                                            
-        joinAction.performed += context => JoinAction(context);                                                              
-        
+        joinAction.Enable();
+        joinAction.performed += context => JoinAction(context);
+
         leaveAction.Enable();
         leaveAction.performed += context => LeaveAction(context);
 
     }
 
-   
+
     private void Start()
     {
         PlayerInputManager.instance.JoinPlayer(0, -1, null);

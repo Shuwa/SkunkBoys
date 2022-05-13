@@ -62,5 +62,5 @@ public class CameraManager : MonoBehaviour
         return new Vector3(centerX, centerY, centerZ);
     }
 
-   
+
 }

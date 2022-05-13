@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.Events;
 
 public class ChestInventory : InventoryHolder, IInteractable
@@ -9,12 +6,13 @@ public class ChestInventory : InventoryHolder, IInteractable
 
     public void EndInteraction()
     {
- 
+
+
     }
 
     public void Interact(Interactor interactor, out bool interactSuccessful)
     {
-        OnDynamicInventoryDisplayRequested?.Invoke(inventorySystem);
+        OnDynamicInventoryDisplayRequested?.Invoke(primaryInventorySystem);
         interactSuccessful = true;
     }
 }

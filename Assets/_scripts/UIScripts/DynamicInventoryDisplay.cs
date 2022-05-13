@@ -1,20 +1,20 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
 
 public class DynamicInventoryDisplay : InventoryDisplay
 {
     [SerializeField] protected InventorySlot_UI slotPrefab;
     protected override void Start()
     {
-        base.Start();  
+        base.Start();
     }
 
     public void RefreshDynamicInventory(InventorySystem invtoDisplay)
     {
         ClearSlots();
         inventorySystem = invtoDisplay;
+        if (inventorySystem != null) inventorySystem.OnInventorySlotsChanged += UpdateSlot;
         AssignSlot(invtoDisplay);
     }
 
@@ -44,7 +44,12 @@ public class DynamicInventoryDisplay : InventoryDisplay
 
         if (slotDictionary != null) slotDictionary.Clear();
     }
+
+    private void OnDisable()
+    {
+        if (inventorySystem != null) inventorySystem.OnInventorySlotsChanged -= UpdateSlot;
+    }
 }
-    // Start is called before the first frame update
-  
+
+
 

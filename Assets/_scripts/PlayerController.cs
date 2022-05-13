@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
         purple,
 
     }
-    
+
     public playerName thisPlayerName = playerName.blue;
 
 

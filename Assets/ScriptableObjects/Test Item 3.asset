@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Test Item 3
   m_EditorClassIdentifier: 
   ID: 2
-  DisplayName: 
-  Description: 
+  DisplayName: Yollow
+  Description: holow
   Icon: {fileID: 0}
-  MaxStackSize: 0
+  MaxStackSize: 1
