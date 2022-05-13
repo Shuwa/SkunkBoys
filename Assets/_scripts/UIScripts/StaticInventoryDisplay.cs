@@ -8,30 +8,31 @@ public class StaticInventoryDisplay : InventoryDisplay
 {
     [SerializeField] private InventoryHolder inventoryHolder;
     [SerializeField] private InventorySlot_UI[] slots;
-    [SerializeField] private GameObject[] player;
-  
-
-   
-    
     
 
-    
 
-    
+
 
     protected override void Start()
     {
         base.Start();
+        StartCheck();
 
-        GameManager.instance.PlayerJoinedGame += PlayerJoinedGame;
+        //if (inventoryHolder != null) 
+        //{
+        //    inventorySystem = inventoryHolder.InventorySystem;
+        //    inventorySystem.OnInventorySlotsChanged += UpdateSlot;
 
-        
-        
+        //}
+        //else Debug.LogWarning($"No inventory assigned to{this.gameObject}");
 
+        //AssignSlot(inventorySystem);
+    }
 
-
-
-        if (inventoryHolder != null) 
+    public void RefreshSlots()
+  { 
+    
+         if (inventoryHolder != null) 
         {
             inventorySystem = inventoryHolder.InventorySystem;
             inventorySystem.OnInventorySlotsChanged += UpdateSlot;
@@ -40,25 +41,15 @@ public class StaticInventoryDisplay : InventoryDisplay
         else Debug.LogWarning($"No inventory assigned to{this.gameObject}");
 
         AssignSlot(inventorySystem);
-    }
+}
 
 
-   
-
-    public void PlayerJoinedGame(PlayerInput playerInput)
+IEnumerator StartCheck()
     {
-        player[playerInput.playerIndex].SetActive(true);
-        player[playerInput.playerIndex].GetComponent<PlayerUIPanel>().AssignPlayer(playerInput.playerIndex);
+        yield return new WaitForSeconds(5.00f);
+
+        RefreshSlots();
     }
-
-   
-
-
-
-
-
-
-
 
 
     public override void AssignSlot(InventorySystem invToDisplay)
@@ -72,8 +63,29 @@ public class StaticInventoryDisplay : InventoryDisplay
             slotDictionary.Add(slots[i], inventorySystem.InventorySlots[i]);
             slots[i].Init(inventorySystem.InventorySlots[i]);
         }
-    } 
 
- 
-    
+    }
+
+
+
+
+
 }
+        
+        
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+

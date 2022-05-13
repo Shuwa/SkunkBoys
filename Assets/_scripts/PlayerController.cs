@@ -16,8 +16,18 @@ public class PlayerController : MonoBehaviour
 
 
     public int score;
+    public event System.Action<int> OnScoreChanged;
 
+    public enum playerName
+    {
+        blue,
+        red,
+        green,
+        purple,
+
+    }
     
+    public playerName thisPlayerName = playerName.blue;
 
 
 
@@ -51,6 +61,11 @@ public class PlayerController : MonoBehaviour
     public void IncreaseScore(int value)
     {
         score += value;
+
+        if (OnScoreChanged != null)
+        {
+            OnScoreChanged(score);
+        }
         Debug.Log("Player score: " + score);
     }
 

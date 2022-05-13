@@ -12,14 +12,11 @@ public abstract class InventoryDisplay : MonoBehaviour
     public InventorySystem InventorySystem => inventorySystem;
     public Dictionary<InventorySlot_UI, InventorySlots> SlotDictionary => slotDictionary;
 
-   
-
-
-
     protected virtual void Start()
     {
 
     }
+
     public abstract void AssignSlot(InventorySystem invToDisplay);
 
 
@@ -35,7 +32,12 @@ public abstract class InventoryDisplay : MonoBehaviour
     }
     public void SlotClicked(InventorySlot_UI clickedSlot)
     {
-        Debug.Log("Slot clicked");
+        if (clickedSlot.AssignedInventorySlot.ItemData != null && mouseInventoryItem.AssignedInventorySlot.ItemData == null)
+        {
+            mouseInventoryItem.UpdateMouseSlot(clickedSlot.AssignedInventorySlot);
+            clickedSlot.ClearSlot();
+            return;
+        }
 
     }
 }

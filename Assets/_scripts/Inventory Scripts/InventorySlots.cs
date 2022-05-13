@@ -30,6 +30,16 @@ public class InventorySlots
         stackSize = -1;
     }
 
+    public void AssignItem(InventorySlots invSlot)
+    {
+        if (itemData == invSlot.ItemData) AddToStack(invSlot.stackSize);
+        else
+        {
+            itemData = invSlot.ItemData;
+            stackSize = 0;
+            AddToStack(invSlot.stackSize);
+        }
+    }
     public void UpdateInventorySlots(InventoryItemData data, int amount)
     {
         itemData = data;

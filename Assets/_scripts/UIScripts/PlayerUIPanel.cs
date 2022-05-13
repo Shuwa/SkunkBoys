@@ -1,30 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 
 
 public class PlayerUIPanel : MonoBehaviour
 {
-    public PlayerController player;
+    public TextMeshProUGUI playerName;
+    public TextMeshProUGUI playerScore;
 
-    public void AssignPlayer (int index)
+    PlayerController player;
+       
 
-  
+
+public void AssignPlayer(int index)
+{
+    StartCoroutine(AssignPlayerDelay(index));
+}
+
+
+IEnumerator AssignPlayerDelay(int index)
+{
+    yield return new WaitForSeconds(0.01f);
+    player = GameManager.instance.playerList[index].GetComponent<InputManager>().playerController;
+
+    SetupInfoPanel();
+
+}
+    void SetupInfoPanel()
     {
-        StartCoroutine(AssignPlayerDelay(index));
-        
+        if(player != null)
+        {
+            player.OnScoreChanged += UpdateScore;
+            playerName.text = player.thisPlayerName.ToString();
+        }
     }
 
-    IEnumerator AssignPlayerDelay(int index)
+    private void UpdateScore(int score)
     {
-        yield return new WaitForSeconds(0.01f);
-        player = GameManager.instance.playerList[index].GetComponent<InputManager>().playerController;
+        playerScore.text = score.ToString();
         
-
-     }   
-
-   
-
-   
+    }
 }
+
+
+
+
