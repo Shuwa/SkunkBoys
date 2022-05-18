@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     public GameObject[] playerPrefabs;
-   PlayerController playerController;
+    public PlayerController playerController;
 
 
     private void Awake()
@@ -29,6 +29,10 @@ public class InputManager : MonoBehaviour
         playerController.OnMove(context);
     }
 
+    public void OnAtack(InputAction.CallbackContext context)
+    {
+        playerController.OnAtack(context);
+    }
 
 
 }

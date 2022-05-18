@@ -428,6 +428,6 @@ MonoBehaviour:
   inventorySize: 0
   primaryInventorySystem:
     inventorySlots: []
-  secondaryInventorySize: 20
+  secondaryInventorySize: 5
   secondaryInventorySystem:
     inventorySlots: []

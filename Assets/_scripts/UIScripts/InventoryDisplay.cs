@@ -39,6 +39,7 @@ public abstract class InventoryDisplay : MonoBehaviour
 
             mouseInventoryItem.UpdateMouseSlot(clickedSlot.AssignedInventorySlot);
             clickedSlot.ClearSlot();
+            Debug.Log("MouseITEM DEBUG1 ");
             return;
 
         }
@@ -46,6 +47,7 @@ public abstract class InventoryDisplay : MonoBehaviour
 
         if (clickedSlot.AssignedInventorySlot.ItemData == null && mouseInventoryItem.AssignedInventorySlot.ItemData != null)
         {
+            Debug.Log("MouseITEM DEBUG2 ");///
             clickedSlot.AssignedInventorySlot.AssignItem(mouseInventoryItem.AssignedInventorySlot);
             clickedSlot.UpdateUISlot();
 
@@ -63,8 +65,9 @@ public abstract class InventoryDisplay : MonoBehaviour
 
             if (isSameItem && clickedSlot.AssignedInventorySlot.RoomLeftInStack(mouseInventoryItem.AssignedInventorySlot.StackSize))
 
-
+                
             {
+                Debug.Log("MouseITEM DEBUG3 ");
                 clickedSlot.AssignedInventorySlot.AssignItem(mouseInventoryItem.AssignedInventorySlot);
                 clickedSlot.UpdateUISlot();
 
@@ -76,6 +79,7 @@ public abstract class InventoryDisplay : MonoBehaviour
                 if (leftInStack < 1) SwapSlots(clickedSlot); // Stack is full swap
                 else // Slot not max, take what need from mouse .
                 {
+                    Debug.Log("MouseITEM DEBUG4 ");
                     int remainingOnMOuse = mouseInventoryItem.AssignedInventorySlot.StackSize - leftInStack;
                     clickedSlot.AssignedInventorySlot.AddToStack(leftInStack);
                     clickedSlot.UpdateUISlot();
@@ -86,9 +90,10 @@ public abstract class InventoryDisplay : MonoBehaviour
 
                 }
             }
-
+            
             else if (!isSameItem)
             {
+                Debug.Log("MouseITEM DEBUG6 ");
                 SwapSlots(clickedSlot);
             }
         }
@@ -108,7 +113,7 @@ public abstract class InventoryDisplay : MonoBehaviour
         clickedSlot.ClearSlot();
         clickedSlot.AssignedInventorySlot.AssignItem(clonedSlot);
         clickedSlot.UpdateUISlot();
-
+        Debug.Log("MouseITEM DEBUG7 ");
     }
 }
 
